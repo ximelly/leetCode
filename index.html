@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/twoSum.js"></script>
+</head>
+<body>
+  <ul>
+    <li data-fun='twoSum'>两数之和</li>
+  </ul>
+  <script>
+    var lis = document.getElementsByTagName('li')
+    lis = Array.prototype.slice.call(lis),
+    _this = this
+    lis.forEach(element => {
+      element.onclick= (el) => {
+        let funName = element.getAttribute('data-fun')
+        debugger
+        _this[funName]()
+      }
+    });
+  </script>
+</body>
+</html>
