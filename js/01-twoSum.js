@@ -17,6 +17,15 @@
 输出：[0,1] 
 */
 
-function twoSum() { 
-  console.warn('kl;')
+function twoSum (arr=[3,1,5], target=6) { 
+  let val = []
+  for (let i = 0; i < arr.length; i++) { 
+    let index = arr.indexOf(target - arr[i], i+1)
+    if (index > -1) {
+      val = [i, index]
+      break
+    }
+  }
+  console.warn(val)
+  return val
 }

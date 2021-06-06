@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="./js/twoSum.js"></script>
+  <script src="./js/01-twoSum.js"></script>
+  <script src="./js/02-reverse.js"></script>
 </head>
 <body>
   <ul>
     <li data-fun='twoSum'>两数之和</li>
+    <li data-fun='reverse'>整数反转</li>
   </ul>
   <script>
     var lis = document.getElementsByTagName('li')
@@ -17,7 +19,6 @@
     lis.forEach(element => {
       element.onclick= (el) => {
         let funName = element.getAttribute('data-fun')
-        debugger
         _this[funName]()
       }
     });
