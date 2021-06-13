@@ -18,11 +18,13 @@
 */
 
 function twoSum (arr=[3,1,5], target=6) { 
-  let val = []
+  let val = [], map = new Map()
   for (let i = 0; i < arr.length; i++) { 
-    let index = arr.indexOf(target - arr[i], i+1)
-    if (index > -1) {
-      val = [i, index]
+    let index = map.get(arr[i])
+    if (index === undefined) {
+      map.set(target - arr[i], i)
+    } else { 
+      val = [index, i]
       break
     }
   }
