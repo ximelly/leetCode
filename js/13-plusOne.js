@@ -13,18 +13,20 @@
  * @param {number[]} digits
  * @return {number[]}
  */
-var plusOne = function (digits = [9, 9, 9]) {
-  let add = 1
-  for (let i = digits.length - 1; i >= 0; i--) { 
+var plusOne = function (digits = [1, 9, 9]) {
+  let len = digits.length
+  for (let i = len - 1; i >= 0; i--) { 
     let item = digits[i]
-    if (item + add >= 10) {
-      digits[i] = item + add - 10
-      if (i == 0 ) { 
-        digits.unshift(1)
+    if (item === 9) {
+      digits[i] = 0
+      if (i == 0) {
+        let newArr = new Array(len + 1).fill(0)
+        newArr[0] = 1
+        digits = newArr
         break
       }
     } else { 
-      digits[i] += add
+      digits[i] += 1
       break
     }
   }
