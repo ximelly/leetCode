@@ -10,21 +10,33 @@
  * @param {string} b
  * @return {string}
  */
-var addBinary = function (a = "1111", b = "1111") {
+var addBinary = function (a = "1111", b = "1") {
+  // let add = 0,
+  //   maxLength = Math.max(a.length, b.length),
+  //   newArr = new Array(maxLength)
+  // for (let i = 0; i <= maxLength - 1; i++) {
+  //   let aItem = a.charAt(a.length - 1 - i) || '0',
+  //     bItem = b.charAt(b.length - 1 - i) || '0',
+  //     sum = add + (+aItem) + (+bItem)
+  //   newArr[maxLength - 1 - i] = sum % 2 
+  //   add = parseInt(sum / 2)
+  //   if (i === maxLength - 1 && add) { 
+  //     newArr.unshift(add)
+  //   }
+  // }
+  // return newArr.join('')
+
+
   let add = 0,
-    maxLength = Math.max(a.length, b.length),
-    newArr = new Array(maxLength)
-  for (let i = 0; i <= maxLength - 1; i++) {
-    let aIndex = a.length - 1 - i,
-      bIndex = b.length - 1 - i,
-      aItem = aIndex >= 0 ? +a.charAt(aIndex) : 0,
-      bItem = bIndex >= 0 ? +b.charAt(bIndex) : 0,
-      sum = add + aItem + bItem
-    newArr[maxLength - 1 - i] = sum >= 2 ? sum - 2 : sum 
-    add = sum >= 2 ? 1 : 0 
-    if (i === maxLength - 1 && add) { 
-      newArr.unshift(1)
-    }
+    newArr = [],
+    aIndex = a.length - 1,
+    bIndex = b.length - 1
+  while (aIndex >= 0 || bIndex >= 0 || add) {
+    let aItem = +(a[aIndex--] || '0'),//获取到aItem后aIndex减一
+      bItem = +(b[bIndex--] || '0'),
+      sum = aItem + bItem + add
+    add = parseInt(sum / 2)//获取进位数
+    newArr.push(sum % 2)//获取进位数余数
   }
-  return newArr.join('')
+  return newArr.reverse().join('')
 };
